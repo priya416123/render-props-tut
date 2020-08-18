@@ -1,0 +1,32 @@
+import React from 'react'
+
+class Counter extends React.Component{
+    constructor(props){
+        super(props)
+
+        this.state={
+            count: 0
+        }
+    }
+
+    incrementCount= () =>{
+        this.setState(prevState=>{
+            return {
+                count: prevState.count + 1
+            }
+        })
+    }
+
+    render(){
+        return(
+            <div>
+                {/* 1st way */}
+                {/* {this.props.render(this.state.count,this.incrementCount)} */}
+                {/* 2nd way */}
+                {this.props.children(this.state.count,this.incrementCount)}
+            </div>
+        )
+    }
+}
+
+export default Counter
